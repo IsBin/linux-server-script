@@ -16,7 +16,6 @@ tar -xvf /usr/local/mysql.tar.xz -C /usr/local/mysql --strip-components 1
 
 set +e
 groups mysql
-set -e
 
 if test $? -eq 1
 then
@@ -25,6 +24,8 @@ then
 else
 	echo "已存在mysql用户和组"
 fi
+
+set -e
 
 mkdir -p /data/mysql
 chown mysql:mysql -R /data/mysql
